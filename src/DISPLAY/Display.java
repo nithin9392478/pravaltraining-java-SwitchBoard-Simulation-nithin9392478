@@ -1,8 +1,18 @@
-package switchboard;
-import java.util.*;
+package DISPLAY;
+
+import java.util.HashMap;
+
+import APPLIANCE.Appliance;
+import CONSTANT.*;
+import INPUT.Input;
+import SERVICE.Service;
+//import switchboard.Appliance;
+//import switchboard.Constant;
+//import switchboard.Input;
+//import switchboard.Service;
 public class Display extends Constant{
 
-	void display(boolean exit,Appliance obj[],HashMap<Integer,Appliance> h1)
+	public void display(boolean exit,Appliance obj[],HashMap<Integer,Appliance> h1)
 	{
 		Input input=new Input();
 		while(exit)

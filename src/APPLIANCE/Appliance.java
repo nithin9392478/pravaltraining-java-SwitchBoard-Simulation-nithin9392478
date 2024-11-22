@@ -1,4 +1,4 @@
-package switchboard;
+package APPLIANCE;
 
 public class Appliance{
 	private int number;
@@ -6,34 +6,34 @@ public class Appliance{
     private boolean state;
 	private int ind;
 	
-	void set(int number,String name,boolean state,int ind)
+	public void set(int number,String name,boolean state,int ind)
 	{
 		this.number=number;
 		this.state=state;
 		this.name=name;
 		this.ind=ind;
 	}
-	void setState(boolean state)
+	public void setState(boolean state)
 	{
 		this.state=state;
 	}
-	int getNumber()
+	public int getNumber()
 	{
 		return number;
 	}
-	String getName()
+	public String getName()
 	{
 		return name;
 	}
-	boolean getState()
+	public boolean getState()
 	{
 		return state;
 	}
-	int getInd()
+	public int getInd()
 	{
 		return ind;
 	}
-	void show()
+	public void show()
 	{
 		String s="";
 		s=s+((this.state==false)?"Off":"On");

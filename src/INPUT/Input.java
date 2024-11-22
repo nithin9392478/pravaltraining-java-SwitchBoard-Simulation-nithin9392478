@@ -1,14 +1,22 @@
-package switchboard;
-import java.util.*;
+package INPUT;
+
+
+import CONSTANT.Constant;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 
 public class Input extends Constant{
-	int numberOfFan;
-	int numberOfAc;
-	int numberOfBulb;
-    void input()
+
+	public static int numberOfFan;
+	public static int numberOfAc;
+	public static int numberOfBulb;
+    public static void input()
 	{
     	Scanner sc=new Scanner(System.in);
     	boolean isState=true;
+    	Constant c1=new Constant();
+ 
     	while(isState)
     	{
         	try {
@@ -75,7 +83,7 @@ public class Input extends Constant{
 
 	}
     
-	int iteminput()
+	public int iteminput()
 	{
 		Scanner sc=new Scanner(System.in);
 		int itemnum=0;
