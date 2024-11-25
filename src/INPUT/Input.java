@@ -15,7 +15,7 @@ public class Input extends Constant{
 	{
     	Scanner sc=new Scanner(System.in);
     	boolean isState=true;
-    	Constant c1=new Constant();
+
  
     	while(isState)
     	{
@@ -24,7 +24,7 @@ public class Input extends Constant{
         		numberOfFan=sc.nextInt();
         		if(numberOfFan<0)
         		{
-        			System.out.println(ENTER_VALID_IN);
+        			System.out.println(ENTER_VALID_IN);	
         			isState=true;
         		}
         		else {

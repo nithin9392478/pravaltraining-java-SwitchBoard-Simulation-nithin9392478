@@ -33,10 +33,5 @@ public class Appliance{
 	{
 		return ind;
 	}
-	public void show()
-	{
-		String s="";
-		s=s+((this.state==false)?"Off":"On");
-		System.out.println(this.ind+"."+this.name+" "+this.number+" is"+" "+s);
-	}
+
 }

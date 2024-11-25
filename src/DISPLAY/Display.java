@@ -5,11 +5,8 @@ import java.util.HashMap;
 import APPLIANCE.Appliance;
 import CONSTANT.*;
 import INPUT.Input;
-import SERVICE.Service;
-//import switchboard.Appliance;
-//import switchboard.Constant;
-//import switchboard.Input;
-//import switchboard.Service;
+import SERVICE.ChangeState;
+
 public class Display extends Constant{
 
 	public void display(boolean exit,Appliance obj[],HashMap<Integer,Appliance> h1)
@@ -21,7 +18,9 @@ public class Display extends Constant{
 			{
 //				obj[i].show();
 				
-				h1.get(i+1).show();
+
+				
+				System.out.println(h1.get(i+1).getInd()+"."+h1.get(i+1).getName()+" "+h1.get(i+1).getNumber()+" is"+" "+(!(h1.get(i+1).getState())?"Off":"On"));
 			}
 			System.out.println((obj.length+1)+"."+EXIT);
 			System.out.println(EnterDeviceno);
@@ -33,8 +32,8 @@ public class Display extends Constant{
 			}
 			else if(itemnum>0 && itemnum<=h1.size())                                      //obj.length
 			{
-				boolean flag1=true;
-				while(flag1)
+				boolean isState=true;
+				while(isState)
 				{
 //					System.out.println("1."+SWITCH+" "+obj[itemnum-1].getName()+obj[itemnum-1].getNumber()+" "+((obj[itemnum-1].getState())?Off:On));
 					
@@ -42,9 +41,9 @@ public class Display extends Constant{
 					System.out.println("2."+BACK);
 					System.out.println(SELECT_STATE);
 					int statenum=input.iteminput();
-					Service service=new Service();
-					flag1=service.changeState(statenum,obj,itemnum,h1);
-					if(!flag1)
+					ChangeState service=new ChangeState();
+					isState=service.changeState(statenum,obj,itemnum,h1);
+					if(!isState)
 					{
 						System.out.println(STATE_CHANGE);
 					}
@@ -55,4 +54,7 @@ public class Display extends Constant{
 			}
 		}
 	}
+	
+	
+	
 }

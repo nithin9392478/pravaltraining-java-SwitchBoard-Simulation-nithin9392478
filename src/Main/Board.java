@@ -1,20 +1,11 @@
 package Main;
 
-//import static switchboard.Input.numberOfAc;
-//import static switchboard.Input.numberOfBulb;
-//import static switchboard.Input.numberOfFan;
-
-//import java.util.HashMap;
-//import switchboard.Appliance;
-//import switchboard.Display;
-//import INPUT.*;
-//import switchboard.Service;
 
 import java.util.HashMap;
-import INPUT.*;
-import APPLIANCE.*;
-import DISPLAY.*;
-import SERVICE.Service;
+import INPUT.Input;
+import APPLIANCE.Appliance;
+import DISPLAY.Display;
+import SERVICE.CreateObjArray;
 
 public class Board extends Input {
     Board(){
@@ -22,7 +13,7 @@ public class Board extends Input {
 	input();
 	Appliance obj[]=new Appliance[numberOfFan+numberOfAc+numberOfBulb];
 	HashMap<Integer,Appliance> h1=new HashMap<>();
-	Service service=new Service();
+	CreateObjArray service=new CreateObjArray();
 	service.createobjArray(numberOfFan,"Fan",false,obj,h1);
 	service.createobjArray(numberOfAc,"Ac",false,obj,h1);
 	service.createobjArray(numberOfBulb,"Bulb",false,obj,h1);
