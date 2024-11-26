@@ -24,6 +24,8 @@ public class ChangeState implements IChangeState  {
 			
 			
 //			obj[itemnum-1].setState(((obj[itemnum-1].getState())?false:true));
+			
+			
 			h1.get(itemnum).setState(((h1.get(itemnum).getState())?false:true));
 			isState=false;
 			break;

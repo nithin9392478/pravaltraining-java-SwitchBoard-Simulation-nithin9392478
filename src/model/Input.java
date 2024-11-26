@@ -38,7 +38,8 @@ public class Input extends Constant{
 
 	}
     
-	public int iteminput()
+    
+	public int stateinput()
 	{
 		Scanner sc=new Scanner(System.in);
 		int itemnum=0;
@@ -55,6 +56,27 @@ public class Input extends Constant{
 				else {
 					isItem=false;
 				}
+			}
+			catch(InputMismatchException e){
+				System.out.println(ENTER_VALID_IN);
+				sc.next();
+			}
+		}
+		return itemnum;
+	}
+	
+	
+	public int iteminput()
+	{
+		Scanner sc=new Scanner(System.in);
+		int itemnum=0;
+		boolean isItem=true;
+		while(isItem)
+		{
+			try {
+				
+			    itemnum=sc.nextInt();
+				isItem=false;
 			}
 			catch(InputMismatchException e){
 				System.out.println(ENTER_VALID_IN);

@@ -22,6 +22,4 @@ public class InsertinMap implements IInsertinMap{
 	}
 
 
-
-
 }

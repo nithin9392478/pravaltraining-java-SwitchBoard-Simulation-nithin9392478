@@ -32,12 +32,11 @@ public class Display extends Constant{
 				boolean isState=true;
 				while(isState)
 				{
-//					System.out.println("1."+SWITCH+" "+obj[itemnum-1].getName()+obj[itemnum-1].getNumber()+" "+((obj[itemnum-1].getState())?Off:On));
 					
 					System.out.println(concateStringItem(itemnum,h1));
 					System.out.println("2."+BACK);
 					System.out.println(SELECT_STATE);
-					int statenum=input.iteminput();
+					int statenum=input.stateinput();
 					ChangeState service=new ChangeState();
 					isState=service.changeState(statenum,obj,itemnum,h1);
 					if(!isState)
