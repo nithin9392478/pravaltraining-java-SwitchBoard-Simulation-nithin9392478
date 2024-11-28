@@ -1,5 +1,5 @@
-package model;
-
+package STARTUP;
+import SERVLATE.Board;
 
 
 public class Main {

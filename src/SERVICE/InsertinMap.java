@@ -1,7 +1,7 @@
-package controll;
+package SERVICE;
 
 import java.util.HashMap;
-import modules.IInsertinMap;
+import CONTRACT.IInsertinMap;
 import model.Appliance;
 
 public class InsertinMap implements IInsertinMap{

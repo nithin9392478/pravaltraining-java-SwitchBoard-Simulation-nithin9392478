@@ -1,4 +1,4 @@
-package view;
+package CONSTANT;
 
 public class Constant {
 	public static String ENTER_NO="Enter number of";

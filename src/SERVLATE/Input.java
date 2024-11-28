@@ -1,6 +1,6 @@
-package model;
+package SERVLATE;
 
-import view.Constant;
+import CONSTANT.Constant;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

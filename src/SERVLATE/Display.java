@@ -1,10 +1,11 @@
-package view;
+package SERVLATE;
 
 import java.util.HashMap;
 
+import CONSTANT.Constant;
 import model.Appliance;
-import model.Input;
-import controll.ChangeState;
+
+import SERVICE.ChangeState;
 
 public class Display extends Constant{
 
@@ -74,7 +75,7 @@ public class Display extends Constant{
 		s=s.concat(" ");
 		s=s.concat(h1.get(i+1).getName()+"");
 		s=s.concat(" ");
-		s=s.concat(h1.get(i+1).getNumber()+"");
+		s=s.concat(h1.get(i+1).getNumber() +"");
 		s=s.concat(" is");
 		s=s.concat(" ");
 		s=s.concat((!(h1.get(i+1).getState())?"Off":"On"));

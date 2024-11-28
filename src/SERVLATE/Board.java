@@ -1,13 +1,14 @@
-package model;
+package SERVLATE;                                                        //provider
 
 import java.util.HashMap;
-import view.Display;
-import controll.InsertinMap;
-import view.Constant;
+import SERVICE.InsertinMap;
+import model.Appliance;
+import CONSTANT.Constant;
 
 public class Board extends Input {
 	
     public void board(){
+    	
     	int numberOfFan=input(Constant.FAN);
     	int numberOfAc=input(Constant.AC);
     	int numberOfBulb=input(Constant.BULB);

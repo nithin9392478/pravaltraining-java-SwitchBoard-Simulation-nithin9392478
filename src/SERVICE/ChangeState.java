@@ -1,7 +1,7 @@
-package controll;
+package SERVICE;
 
 import java.util.HashMap;
-import modules.IChangeState;
+import CONTRACT.IChangeState;
 import model.Appliance;
 
 public class ChangeState implements IChangeState  {
