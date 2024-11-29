@@ -10,6 +10,7 @@ public class Board extends Input {
 	
     public void board() throws ClassNotFoundException, SQLException{
     	
+    	
     	int numberOfFan=input(Constant.FAN);
     	int numberOfAc=input(Constant.AC);
     	int numberOfBulb=input(Constant.BULB);
