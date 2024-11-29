@@ -1,5 +1,6 @@
-package SERVLATE;                                                        //provider
+package PROVIDER;                                                        //provider
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import SERVICE.InsertinMap;
 import model.Appliance;
@@ -7,7 +8,7 @@ import CONSTANT.Constant;
 
 public class Board extends Input {
 	
-    public void board(){
+    public void board() throws ClassNotFoundException, SQLException{
     	
     	int numberOfFan=input(Constant.FAN);
     	int numberOfAc=input(Constant.AC);
@@ -24,7 +25,7 @@ public class Board extends Input {
 		A.display(true,obj,h1);
 		System.out.println("Exit from board");
 	}
-    
+
     
 
 }

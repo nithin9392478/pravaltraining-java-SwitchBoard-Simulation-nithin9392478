@@ -1,5 +1,6 @@
-package SERVLATE;
+package PROVIDER;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 
 import CONSTANT.Constant;
@@ -9,7 +10,7 @@ import SERVICE.ChangeState;
 
 public class Display extends Constant{
 
-	public void display(boolean exit,Appliance obj[],HashMap<Integer,Appliance> h1)
+	public void display(boolean exit,Appliance obj[],HashMap<Integer,Appliance> h1) throws ClassNotFoundException, SQLException
 	{
 		Input input=new Input();
 		while(exit)

@@ -1,4 +1,4 @@
-package SERVLATE;
+package PROVIDER;
 
 import CONSTANT.Constant;
 import java.util.InputMismatchException;
