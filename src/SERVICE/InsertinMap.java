@@ -15,15 +15,17 @@ public class InsertinMap implements IInsertinMap{
 	{
 		for(int i=0;i<n;i++)
 		{
+			
+			
 //			obj[ind]=new Appliance();
 //			obj[ind].set(i+1,name,false,ind+1);
 			
-			Appliance ob=new Appliance();
-			ob.set(i+1,name,false,ind+1);
-			h1.put(ind+1,ob);
+//			Appliance ob=new Appliance();
+//			ob.set(i+1,name,false,ind+1);
+//			h1.put(ind+1,ob);
 	
 			
-			String s="insert into appliance(id,name,state,number) values("+(ind+1)+","+"'"+(name+"")+"'"+","+"'"+(state+"")+"'"+","+(i+1)+")";
+			String s="insert into Appliance(name,state) values('"+(name+"")+"'"+","+"'"+(state? 1 : 0)+"'"+")";
 			ConnectionDataBase db=new ConnectionDataBase();
 			Connection con=db.connection();
 			Statement st=con.createStatement();

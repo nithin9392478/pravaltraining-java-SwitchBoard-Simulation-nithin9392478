@@ -19,8 +19,8 @@ public class Board extends Input {
 		
 		InsertinMap service=new InsertinMap();
 		service.insertinmap(numberOfFan,Constant.FAN,false,obj,h1);
-		service.insertinmap(numberOfAc,Constant.AC,false,obj,h1);
 		service.insertinmap(numberOfBulb,Constant.BULB,false,obj,h1);
+		service.insertinmap(numberOfAc,Constant.AC,false,obj,h1);
 		
 	    Display A=new Display();
 		A.display(true,obj,h1);

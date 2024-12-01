@@ -30,10 +30,10 @@ public class ChangeState implements IChangeState  {
 			
 //			obj[itemnum-1].setState(((obj[itemnum-1].getState())?false:true));
 			
-			h1.get(itemnum).setState(((h1.get(itemnum).getState())?false:true));
+//			h1.get(itemnum).setState(((h1.get(itemnum).getState())?false:true));
 			
 			
-			boolean finalState=false;
+			boolean finalState;
 			String query="select *from appliance where id="+itemnum;
 			ConnectionDataBase db=new ConnectionDataBase();
 			Connection con=db.connection();
@@ -43,12 +43,12 @@ public class ChangeState implements IChangeState  {
 			Statement st=con.createStatement();
 			
 			rs.next();
-			String state=rs.getString("state");
+			boolean state=rs.getBoolean("state");
 	
 			int id=rs.getInt("id");
 		
-			finalState=(state=="true"?false:true);
-			String updateState="update appliance set state="+"'"+(finalState+"")+"'"+"where id="+"'"+id+"'";
+			finalState=((state)?false:true);
+			String updateState="update appliance set state="+"'"+(finalState)+"'"+"where id="+"'"+id+"'";
 			st.executeUpdate(updateState);
 			st.close();
 			st1.close();
