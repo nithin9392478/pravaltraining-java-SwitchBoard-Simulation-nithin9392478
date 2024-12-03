@@ -1,14 +1,14 @@
 package startup;
 
-import java.sql.SQLException;
 
-import provider.Board;
+
+import provider.SwitchBoard;
 
 
 public class Main {
-	public static void main(String args[]) throws ClassNotFoundException
+	public static void main(String args[]) throws ClassNotFoundException 
 	{
-		Board objboard= new Board();
-		objboard.createBoard();
+		SwitchBoard board= new SwitchBoard();
+		board.createBoard();
 	}
 }

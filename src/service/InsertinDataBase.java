@@ -2,7 +2,7 @@ package service;
 
 
 import contract.IInsertinDataBase;
-import database.DataBaseInsertQueries;
+import database.DataBaseQueries;
 
 public class InsertinDataBase implements IInsertinDataBase{
 	
@@ -11,7 +11,7 @@ public class InsertinDataBase implements IInsertinDataBase{
 		for(int i=0;i<n;i++)
 		{
 			
-			DataBaseInsertQueries.insertInDatabase(name,state);
+			DataBaseQueries.put(name,state);
 			
 		}
 	}

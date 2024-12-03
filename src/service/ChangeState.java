@@ -2,8 +2,7 @@ package service;
 
 
 import contract.IChangeState;
-import database.DataBaseSelectQueries;
-import database.DataBaseUpdateQueries;
+import database.DataBaseQueries;
 
 public class ChangeState implements IChangeState  {
 	
@@ -22,29 +21,22 @@ public class ChangeState implements IChangeState  {
 	    
 		switch(s1) {
 		case Toggle:
-			
-			
-//			obj[itemnum-1].setState(((obj[itemnum-1].getState())?false:true));
-			
-//			h1.get(itemnum).setState(((h1.get(itemnum).getState())?false:true));
-			
-			
+
 			boolean finalState;
-			boolean state=DataBaseSelectQueries.getState(itemnum);
-	
-			
-			
+			GetFromDataBase applianceState=new GetFromDataBase();
+			boolean state=applianceState.getState(itemnum);
 			finalState=((state)?false:true);
-			
-			DataBaseUpdateQueries.updateInDatabase(itemnum, finalState);
-			
-			
+			DataBaseQueries.set(itemnum, finalState);
 			isState=false;
 			break;
+			
 		case Back:
+			
 			isState=false;
 			break;
+			
 		default:
+			
 			isState=true;
 			break;
 		}

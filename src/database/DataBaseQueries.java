@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import constant.Constant;
 import model.Appliance;
 
@@ -24,8 +23,8 @@ public class DataBaseQueries extends Constant {
 		sb.append("'");
 		sb.append(")");
 		String query=sb.toString();
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 				}catch (Exception e) {
@@ -46,8 +45,8 @@ public class DataBaseQueries extends Constant {
 		sb.append("'");
 
 		String query=sb.toString();
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 				} catch (SQLException e) {
@@ -57,8 +56,8 @@ public class DataBaseQueries extends Constant {
 	public static int getCount() throws ClassNotFoundException
 	{
 		String query=COUNTQUERY;
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 			rs.next();
@@ -75,8 +74,8 @@ public class DataBaseQueries extends Constant {
 	public static boolean getState(int id) throws ClassNotFoundException
 	{
 		String query=STATEQUERY+id;
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 			rs.next();
@@ -92,12 +91,12 @@ public class DataBaseQueries extends Constant {
 	public static String getName(int id) throws ClassNotFoundException
 	{
 		String query=NAMEQUERY+id;
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 			rs.next();
-			String name=rs.getString("name");
+			String name=rs.getString(NAME);
 			return name;
 			
 		} catch (SQLException e) {
@@ -109,8 +108,8 @@ public class DataBaseQueries extends Constant {
 	public static int getId(int id) throws ClassNotFoundException
 	{
 		String query=IDQUERY+id;
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 			rs.next();
@@ -127,17 +126,17 @@ public class DataBaseQueries extends Constant {
 		
 		String query=CONSOLEQUERY;
 	    List<Appliance> data=new ArrayList<>();
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		try(Connection con=DriverManager.getConnection(Databaselogin.getUrl());
+		Class.forName(LOAD_JDBC_DRIVER);
+		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
 				Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery(query)){
 			while(rs.next())
 			{
 				
-				int id=rs.getInt("id");
-				String name=rs.getString("name");
-				boolean state=rs.getBoolean("state");
-				int number=rs.getInt("number");
+				int id=rs.getInt(ID);
+				String name=rs.getString(NAME);
+				boolean state=rs.getBoolean(STATE);
+				int number=rs.getInt(NUMBER);
 				Appliance createApplianceObject=new Appliance();
 				createApplianceObject.set(name, state, id,number);
 				data.add(createApplianceObject);

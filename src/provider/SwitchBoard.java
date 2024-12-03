@@ -5,7 +5,7 @@ package provider;                                                        //provi
 import service.InsertinDataBase;
 import constant.Constant;
 
-public class Board extends Input {
+public class SwitchBoard extends Input {
 	
 	
     public void createBoard() throws ClassNotFoundException{
@@ -23,8 +23,8 @@ public class Board extends Input {
 		initialState.insertinDataBase(numberOfBulb,Constant.BULB,false);
 		initialState.insertinDataBase(numberOfAc,Constant.AC,false);
 		
-		Display A=new Display();
-		A.display(true);
+		Display view=new Display();
+		view.showConsole(true);
 		System.out.println("Exit from board");
 	}
 
