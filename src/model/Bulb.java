@@ -1,16 +1,16 @@
 package model;
+import constant.Constant;
 
-public class Appliance{
-	private String name;
+
+public class Bulb {
+	private String name=Constant.BULB;
     private boolean state;
 	private int id;
-	private int number;
-	public void set(String name,boolean state,int id,int number)
+	
+	public void set(boolean state,int id)
 	{
 		this.state=state;
-		this.name=name;
 		this.id=id;
-		this.number=number;
 	}
 	public void setState(boolean state)
 	{
@@ -28,10 +28,4 @@ public class Appliance{
 	{
 		return id;
 	}
-	public int getNumber()
-	{
-		return number;
-	}
-
-	
 }
