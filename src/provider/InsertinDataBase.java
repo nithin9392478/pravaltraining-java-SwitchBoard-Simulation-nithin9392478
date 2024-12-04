@@ -1,5 +1,4 @@
-package service;
-
+package provider;
 
 import contract.IInsertinDataBase;
 import database.DataBaseQueries;

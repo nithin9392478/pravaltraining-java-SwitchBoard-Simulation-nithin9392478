@@ -1,15 +1,16 @@
 package model;
 import constant.Constant;
 
-public class Fan {
+public class Fan extends Appliance {
 	private String name=Constant.FAN;
     private boolean state;
 	private int id;
-	
-	public void set(boolean state,int id)
+	private int number;
+	public void set(boolean state,int id,int number)
 	{
 		this.state=state;
 		this.id=id;
+		this.number=number;
 	}
 	public void setState(boolean state)
 	{
@@ -26,5 +27,9 @@ public class Fan {
 	public int getInd()
 	{
 		return id;
+	}
+	public int getNumber()
+	{
+		return number;
 	}
 }

@@ -8,8 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import constant.Constant;
 import model.Appliance;
-
+import model.Ac;
+import model.Fan;
+import model.Bulb;
 public class DataBaseQueries extends Constant {
+	
+	public enum Type{
+		Fan,
+		Ac,
+		Bulb;
+	}
 	
 	public static void put(String name,boolean state) throws ClassNotFoundException
 	{
@@ -24,9 +32,9 @@ public class DataBaseQueries extends Constant {
 		sb.append(")");
 		String query=sb.toString();
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
 				}catch (Exception e) {
 					
 				}
@@ -46,9 +54,9 @@ public class DataBaseQueries extends Constant {
 
 		String query=sb.toString();
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
 				} catch (SQLException e) {
 				}
 	}
@@ -57,11 +65,11 @@ public class DataBaseQueries extends Constant {
 	{
 		String query=COUNTQUERY;
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
-			rs.next();
-			int count=rs.getInt("count");
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
+			result.next();
+			int count=result.getInt("count");
 			return count;
 			
 		} catch (SQLException e) {
@@ -75,11 +83,11 @@ public class DataBaseQueries extends Constant {
 	{
 		String query=STATEQUERY+id;
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
-			rs.next();
-			boolean state=rs.getBoolean("state");
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
+			result.next();
+			boolean state=result.getBoolean("state");
 			return state;
 			
 		} catch (SQLException e) {
@@ -92,11 +100,11 @@ public class DataBaseQueries extends Constant {
 	{
 		String query=NAMEQUERY+id;
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
-			rs.next();
-			String name=rs.getString(NAME);
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
+			result.next();
+			String name=result.getString(NAME);
 			return name;
 			
 		} catch (SQLException e) {
@@ -109,11 +117,11 @@ public class DataBaseQueries extends Constant {
 	{
 		String query=IDQUERY+id;
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
-			rs.next();
-			int ind=rs.getInt("id");
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
+			result.next();
+			int ind=result.getInt("id");
 			return ind;
 			
 		} catch (SQLException e) {
@@ -127,19 +135,36 @@ public class DataBaseQueries extends Constant {
 		String query=CONSOLEQUERY;
 	    List<Appliance> data=new ArrayList<>();
 		Class.forName(LOAD_JDBC_DRIVER);
-		try(Connection con=DriverManager.getConnection(DatabaseConnection.getUrl());
-				Statement st=con.createStatement();
-				ResultSet rs=st.executeQuery(query)){
-			while(rs.next())
+		try(Connection connection=DriverManager.getConnection(DatabaseConnection.getUrl());
+				Statement statement=connection.createStatement();
+				ResultSet result=statement.executeQuery(query)){
+			while(result.next())
 			{
 				
-				int id=rs.getInt(ID);
-				String name=rs.getString(NAME);
-				boolean state=rs.getBoolean(STATE);
-				int number=rs.getInt(NUMBER);
-				Appliance createApplianceObject=new Appliance();
-				createApplianceObject.set(name, state, id,number);
-				data.add(createApplianceObject);
+				int id=result.getInt(ID);
+				String name=result.getString(NAME);
+				boolean state=result.getBoolean(STATE);
+				int number=result.getInt(NUMBER);
+				Type type=Type.valueOf(name);
+				switch(type)
+				{
+				case Fan:
+					Fan createFan=new Fan();
+					createFan.set(state, id,number);
+					data.add(createFan);
+					break;
+				case Ac:
+					Ac createAc=new Ac();
+					createAc.set(state, id,number);
+					data.add(createAc);
+					break;
+				case Bulb:
+					Bulb createBulb=new Bulb();
+					createBulb.set(state, id,number);
+					data.add(createBulb);
+					break;
+				}
+
 			}
 			return data;
 			

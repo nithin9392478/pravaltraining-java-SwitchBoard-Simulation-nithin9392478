@@ -1,4 +1,5 @@
-package service;
+package provider;
+
 import model.Appliance;
 import java.util.List;
 import java.util.ArrayList;
